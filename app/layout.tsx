@@ -6,7 +6,11 @@ import './globals.css';
 import NavBar from '@/app/NavBar';
 import Providers from '@/app/providers';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 export const metadata: Metadata = {
   title: 'Issue Tracker',
@@ -20,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.variable}>
         <Providers>
           <NavBar />
           <main className="p-5">{children}</main>
