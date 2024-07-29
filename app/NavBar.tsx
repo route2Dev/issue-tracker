@@ -32,10 +32,10 @@ function NavBar() {
             href={link.href}
             className={classNames(
               {
-                'text-zinc-900 dark:text-zinc-50': link.href === currentPath,
+                'text-zinc-900 dark:text-zinc-100': link.href === currentPath,
                 'text-zinc-500 dark:text-zinc-400': link.href !== currentPath,
               },
-              ' hover:text-zinc-800  dark:hover:text-zinc-100 transition-colors',
+              ' hover:text-zinc-800  dark:hover:text-zinc-300 transition-colors',
             )}
           >
             {link.label}
