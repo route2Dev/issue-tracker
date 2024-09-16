@@ -4,7 +4,7 @@ import prisma from '@/prisma/client';
 import { Table } from '@radix-ui/themes';
 import React from 'react';
 import delay from 'delay';
-import Link from 'next/link';
+import Link from '@/app/components/Link';
 
 async function IssuesPage() {
   const issues = await prisma.issue.findMany();
