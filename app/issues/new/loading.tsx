@@ -1,12 +1,8 @@
-import { Box, Skeleton } from '@radix-ui/themes';
+import IssueFormSkeleton from '@/app/issues/_components/IssueFormSkeleton';
 import React from 'react';
 
 function LoadingNewIssuePage() {
-  return;
-  <Box>
-    <Skeleton />
-    <Skeleton height="20rem" />
-  </Box>;
+  return <IssueFormSkeleton />;
 }
 
 export default LoadingNewIssuePage;
