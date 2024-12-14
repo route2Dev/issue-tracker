@@ -1,5 +1,6 @@
 'use client';
 
+import AuthProvider from '@/app/components/auth/AuthProvider';
 import usePrefersDarkMode from '@/app/components/prefers-dark-mode.hook';
 import { Theme } from '@radix-ui/themes';
 import React, { ReactNode } from 'react';
@@ -14,7 +15,9 @@ function Providers({ children }: Props) {
   console.log('prefersDarkMode', prefersDarkMode);
 
   return (
-    <Theme appearance={prefersDarkMode ? 'dark' : 'light'}>{children}</Theme>
+    <Theme appearance={prefersDarkMode ? 'dark' : 'light'}>
+      <AuthProvider>{children}</AuthProvider>
+    </Theme>
   );
 }
 
