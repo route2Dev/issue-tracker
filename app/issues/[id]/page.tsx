@@ -6,12 +6,15 @@ import React from 'react';
 import EditIssueButton from '@/app/issues/[id]/EditIssueButton';
 import IssueDetails from '@/app/issues/[id]/IssueDetails';
 import DeleteIssueButton from '@/app/issues/[id]/DeleteIssueButton';
+import { getServerAuthSession } from '@/auth';
 
 interface Props {
   params: { id: string };
 }
 
 async function IssueDetailsPage({ params: { id } }: Readonly<Props>) {
+  const session = await getServerAuthSession();
+
   if (isNaN(parseInt(id))) {
     notFound();
   }
@@ -31,12 +34,14 @@ async function IssueDetailsPage({ params: { id } }: Readonly<Props>) {
       <Box className="md:col-span-4">
         <IssueDetails issue={issue} />
       </Box>
-      <Box>
-        <Flex direction="column" gap="4">
-          <EditIssueButton issueId={issue.id} />
-          <DeleteIssueButton issueId={issue.id} />
-        </Flex>
-      </Box>
+      {session && (
+        <Box>
+          <Flex direction="column" gap="4">
+            <EditIssueButton issueId={issue.id} />
+            <DeleteIssueButton issueId={issue.id} />
+          </Flex>
+        </Box>
+      )}
     </Grid>
   );
 }
